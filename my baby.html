@@ -1,0 +1,299 @@
+<title>عيد ميلادك الـ18</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Concept: a wine-dark night that holds a gift until midnight on the 20th, then opens into a candle, falling hearts and a handwritten letter. */
+:root {
+  --sky: #2a0a1d;
+  --sky-2: #66204a;
+  --ink: #fff1f4;
+  --dim: #e9b9c9;
+  --gold: #f7c9a3;
+  --rose: #ff7fa3;
+  --blush: #ffd1dc;
+  --card: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.16);
+  --display: 'Amiri', 'Cairo', serif;
+  --body: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  --hand: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background-color: var(--sky);
+  background-image: radial-gradient(120% 70% at 50% 0%, var(--sky-2), var(--sky) 62%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.7;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+  overflow-x: hidden;
+}
+#stars, #confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#stars { z-index: 0; }
+#confetti { z-index: 20; }
+main { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; text-align: center; }
+.eyebrow { font-size: 0.82rem; letter-spacing: 0.08em; color: var(--gold); font-weight: 500; margin: 0 0 10px; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 7vw, 2.3rem); line-height: 1.35; margin: 0 0 12px; text-wrap: balance; }
+.sub { color: var(--dim); margin: 0 auto; max-width: 34ch; text-wrap: balance; }
+section[hidden] { display: none; }
+
+/* locked */
+.gift { width: 150px; height: 150px; margin: 8px auto 18px; display: block; animation: bob 3.2s ease-in-out infinite; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-9px) rotate(2deg); } }
+.count { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 28px 0 22px; direction: rtl; }
+.unit { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 4px 10px; }
+.unit b { display: block; font-family: var(--display); font-size: clamp(1.7rem, 8vw, 2.4rem); line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--ink); }
+.unit span { font-size: 0.82rem; color: var(--dim); }
+.note { font-size: 0.92rem; color: var(--dim); }
+
+/* unlocked */
+.big18 {
+  font-family: var(--display); font-weight: 700; font-size: clamp(6rem, 30vw, 9rem); line-height: 1; margin: 0;
+  background: linear-gradient(180deg, var(--gold), var(--rose)); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 6px 24px rgba(255, 127, 163, 0.45));
+  animation: pop 0.9s cubic-bezier(.2, 1.4, .4, 1) both;
+}
+@keyframes pop { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.cake { width: min(260px, 70vw); height: auto; display: block; margin: 18px auto 6px; overflow: visible; }
+.flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flick 0.14s ease-in-out infinite alternate; transition: transform 0.5s ease, opacity 0.5s ease; }
+.flame:nth-of-type(2) { animation-duration: 0.18s; }
+@keyframes flick { from { transform: scale(1, 1) rotate(-3deg); } to { transform: scale(0.92, 1.08) rotate(3deg); } }
+.out .flame { animation: none; transform: scale(0.1); opacity: 0; }
+.out .glow { opacity: 0; }
+.glow { transition: opacity 0.5s ease; }
+.btn {
+  font-family: var(--body); font-weight: 700; font-size: 1.05rem; cursor: pointer;
+  background: var(--gold); color: #3a0f27; border: 0; border-radius: 999px; padding: 13px 30px; margin-top: 10px;
+  box-shadow: 0 8px 24px rgba(255, 127, 163, 0.35);
+  transition: transform 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: scale(0.97); }
+.btn:focus-visible { outline: 3px solid var(--blush); outline-offset: 3px; }
+.btn[disabled] { opacity: 0.45; cursor: default; transform: none; }
+
+.letter {
+  margin-top: 36px; text-align: right; background: var(--card); border: 1px solid var(--line);
+  border-radius: 18px; padding: 28px 22px 26px; font-family: var(--hand); font-size: 1.08rem; line-height: 2.1;
+}
+.letter h2 { font-family: var(--display); font-size: 1.35rem; color: var(--gold); margin: 0 0 14px; font-weight: 700; }
+.letter p { margin: 0 0 14px; overflow-wrap: anywhere; opacity: 0; transform: translateY(10px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.letter p.show { opacity: 1; transform: none; }
+.sign { text-align: left; color: var(--rose); font-size: 1.4rem; margin-top: 8px; }
+.again { margin-top: 26px; background: transparent; color: var(--dim); border: 1px solid var(--line); box-shadow: none; font-weight: 500; font-size: 0.95rem; padding: 9px 22px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gift, .big18, .flame { animation: none; }
+  .letter p { transition: none; }
+}
+</style>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<main dir="rtl" lang="ar">
+
+  <section id="locked">
+    <svg class="gift" viewBox="0 0 150 150" aria-hidden="true">
+      <rect x="22" y="62" width="106" height="72" rx="8" fill="var(--rose)"/>
+      <rect x="14" y="44" width="122" height="28" rx="8" fill="var(--gold)"/>
+      <rect x="67" y="44" width="16" height="90" fill="var(--ink)" opacity="0.92"/>
+      <path d="M75 44 C55 18 28 22 40 38 C46 46 66 44 75 44Z" fill="var(--ink)"/>
+      <path d="M75 44 C95 18 122 22 110 38 C104 46 84 44 75 44Z" fill="var(--ink)"/>
+    </svg>
+    <p class="eyebrow" id="lockedDate"></p>
+    <h1>الهدية دي مش بتتفتح قبل معادها</h1>
+    <p class="sub">استحمل شوية، ولما الساعة تدق 12 بالليل ارجع هنا.</p>
+    <div class="count" role="timer" aria-live="off">
+      <div class="unit"><b id="cd">0</b><span>يوم</span></div>
+      <div class="unit"><b id="ch">0</b><span>ساعة</span></div>
+      <div class="unit"><b id="cm">0</b><span>دقيقة</span></div>
+      <div class="unit"><b id="cs">0</b><span>ثانية</span></div>
+    </div>
+    <p class="note">مستنية أشوف وشك وانت بتفتحها.</p>
+  </section>
+
+  <section id="opened" hidden>
+    <p class="eyebrow" id="openedDate"></p>
+    <p class="big18" aria-label="ثمانية عشر">18</p>
+    <h1 id="greet"></h1>
+    <p class="sub" id="cakeHint">قبل ما تفتح رسالتك، اتمنى أمنية واطفي الشمعة.</p>
+
+    <svg class="cake" id="cake" viewBox="0 0 240 230" role="img" aria-label="تورتة عليها شمعتين">
+      <ellipse cx="120" cy="214" rx="108" ry="12" fill="rgba(255,255,255,0.12)"/>
+      <rect x="28" y="136" width="184" height="70" rx="12" fill="var(--rose)"/>
+      <path d="M28 150 q15 18 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t4 0 V136 H28Z" fill="var(--ink)" opacity="0.9"/>
+      <rect x="58" y="92" width="124" height="48" rx="12" fill="var(--gold)"/>
+      <path d="M58 106 q12 16 24 0 t24 0 t24 0 t24 0 t4 0 V92 H58Z" fill="var(--ink)" opacity="0.9"/>
+      <text x="120" y="188" text-anchor="middle" font-family="Amiri, serif" font-weight="700" font-size="34" fill="var(--ink)">18</text>
+      <rect x="95" y="54" width="12" height="42" rx="4" fill="var(--blush)"/>
+      <rect x="133" y="54" width="12" height="42" rx="4" fill="var(--blush)"/>
+      <g class="glow"><circle cx="101" cy="38" r="20" fill="var(--gold)" opacity="0.22"/><circle cx="139" cy="38" r="20" fill="var(--gold)" opacity="0.22"/></g>
+      <path class="flame" d="M101 52 C93 42 98 32 101 22 C104 32 109 42 101 52Z" fill="var(--gold)"/>
+      <path class="flame" d="M139 52 C131 42 136 32 139 22 C142 32 147 42 139 52Z" fill="var(--gold)"/>
+    </svg>
+    <button class="btn" id="blow" type="button">اطفي الشمعة</button>
+
+    <article class="letter" id="letter" hidden>
+      <h2 id="letterTitle"></h2>
+      <div id="letterBody"></div>
+      <div class="sign" id="sign"></div>
+    </article>
+    <button class="btn again" id="again" type="button" hidden>اقراها تاني</button>
+  </section>
+
+</main>
+
+<script>
+/* ===== عدّل هنا ===== */
+var CONFIG = {
+  him: 'نونتي',                 // اسمه أو اللقب اللي بتناديه بيه
+  her: '',                      // اسمك (اختياري، بيظهر في آخر الرسالة)
+  year: 2026, month: 11, day: 20,   // يوم ميلاده
+  age: 18,
+  title: 'كل سنة وانت طيب يا {him}',
+  letterTitle: 'رسالتك يا {him}',
+  letter: [
+    "كل سنه و انت طيب يا نونتي🤍",
+    "مش عارفه ابدا منين بس مهما اوصفلك بحبك قد ايه مش هعرف بجد😔",
+    "عارفه انك بتبقى قلقان و انت سايبني عشان ممكن ازعل منك بس عايزه اقولك انت مهما عملت عمري ما اعرف ازعل منك و اخاصمك او اسيبك عموما عيزاك تثبت الجمله دي في دماغك",
+    "بجد بحبك اوي و بحب حنيتك معايا و بحب لما تصالحني يمكن ساعات بتلكك عشان تصالحني بس الصراحه😭",
+    "و بحبك انت اكتر يا اغلى حاجه في حياتي ربنا يخليك ليا و ميحرمنيش منك ابدا يا عيوني انت هتفضل نونتي حتى غصب عنك لو انت مش عايز و انا هبقى جنجونتك و دلوعتك غصب عنك برضو😂",
+    "و بحب لما تبقى قليل الادب برضو بس بتكثف بقى😝",
+    "بجد و انا بعيد عنك ببقى تايهه و حاسه بخنقه و مش عارفه اتخطى ازاي ولا اركز في المذاكرة ازاي و مبقتش اعرف انام الا اما افكر فيك و اتخيل اني في حضنك و انت مكلبشني فيه و كمان مبعرفش اعدي يوم الا و اقرا الشات بتاعنا و لو مقراتش بحس بحاجه ناقصه فاليوم و على فكره هتفتكر اني ماسحه صورك ولا حاجه محصلش على فكره انا كل يوم ببص في الصور و بتمنى نتجمع في الحلال قريب🥹",
+    "اسفه على الحركه دي بس خد بوثات من كل الانواع اهو",
+    "😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘",
+    "خلاص كفايه عشان الكود يستحمل الرساله😂",
+    "النهارده بقيت 18 سنه يا نونتي، وانا فخورة بيك اوي اوي بجد، فخورة بالشخص اللي بقيت عليه و بكل حاجه بتعملها عشان تبقى احسن🥹",
+    "نفسي السنه دي تبقى احلى سنه في عمرك، و ربنا يوفقك في مذاكرتك و في كل خطوه بتعملها و يحققلك كل حاجه نفسك فيها و اكتر، و انا جنبك في كل لحظه مهما حصل، لو وقعت هسندك و لو فرحت هفرح اكتر منك😍",
+    "و عايزاك دايما تفتكر انك مش لوحدك ابدا، اي حاجه تضايقك او تتعبك قولهالي و انا هبقى موجوده، حتى لو مش هعرف احلها هسمعك و انت في حضني😔🤍",
+    "ربنا يخليك ليا و يخليني ليك، و يجمعنا في الحلال و في بيت صغير حلو يبقى كله حب و ضحك و نونتي و جنجونتك🫂🤍",
+    "بجد بعشقك و بموت فيك دي كلمه قليله عيزاك تخليك فاكر ان عمر حبي ما هيقل حتى لو بعد 100 سنه يا احلى نونة انت في حياتي❤️ (نوئطة(بما انك بتحب ضياء العوضي و لما نتجوز هعملك البشاميل بالاناناس بتاعة الجيار ))"
+]
+};
+/* ==================== */
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var months = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+  var dateText = CONFIG.day + ' ' + months[CONFIG.month - 1] + ' ' + CONFIG.year;
+  var target = new Date(CONFIG.year, CONFIG.month - 1, CONFIG.day, 0, 0, 0);
+  var preview = location.hash === '#preview';
+
+  $('lockedDate').textContent = 'بتتفتح يوم ' + dateText;
+  $('openedDate').textContent = dateText;
+  $('greet').textContent = CONFIG.title.replace('{him}', CONFIG.him);
+  $('letterTitle').textContent = CONFIG.letterTitle.replace('{him}', CONFIG.him);
+  $('sign').textContent = CONFIG.her ? '— ' + CONFIG.her : '';
+
+  /* ---- stars ---- */
+  var sc = $('stars'), sx = sc.getContext('2d'), stars = [];
+  function sizeStars() {
+    var r = window.devicePixelRatio || 1;
+    sc.width = innerWidth * r; sc.height = innerHeight * r;
+    sx.setTransform(r, 0, 0, r, 0, 0);
+    stars = [];
+    var n = Math.round(innerWidth * innerHeight / 9000);
+    for (var i = 0; i < n; i++) stars.push({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, r: Math.random() * 1.3 + 0.3, p: Math.random() * 6.28, s: Math.random() * 1.5 + 0.5 });
+  }
+  function drawStars(t) {
+    sx.clearRect(0, 0, innerWidth, innerHeight);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i], a = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(t / 700 * s.s + s.p));
+      sx.globalAlpha = reduce ? 0.7 : a;
+      sx.fillStyle = '#ffe3ea';
+      sx.beginPath(); sx.arc(s.x, s.y, s.r, 0, 6.283); sx.fill();
+    }
+    sx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(drawStars);
+  }
+  sizeStars(); addEventListener('resize', function () { sizeStars(); if (reduce) drawStars(0); });
+  drawStars(0);
+
+  /* ---- confetti ---- */
+  var cc = $('confetti'), cx = cc.getContext('2d'), bits = [], running = false;
+  var colors = ['#ffb454', '#ff7a93', '#7fe0c3', '#ffe3ea', '#8fa2ff'];
+  function sizeConf() { var r = window.devicePixelRatio || 1; cc.width = innerWidth * r; cc.height = innerHeight * r; cx.setTransform(r, 0, 0, r, 0, 0); }
+  sizeConf(); addEventListener('resize', sizeConf);
+  function burst(n, ox, oy) {
+    if (reduce) return;
+    for (var i = 0; i < n; i++) {
+      var a = Math.random() * Math.PI * 2, v = 5 + Math.random() * 9;
+      bits.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 6, w: 5 + Math.random() * 6, h: 3 + Math.random() * 5, c: colors[i % colors.length], rot: Math.random() * 6, vr: (Math.random() - 0.5) * 0.25, heart: i % 4 !== 0, life: 150 + Math.random() * 70 });
+    }
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+  function tick() {
+    cx.clearRect(0, 0, innerWidth, innerHeight);
+    for (var i = bits.length - 1; i >= 0; i--) {
+      var b = bits[i];
+      b.vy += 0.28; b.vx *= 0.99; b.x += b.vx; b.y += b.vy; b.rot += b.vr; b.life--;
+      if (b.life <= 0 || b.y > innerHeight + 30) { bits.splice(i, 1); continue; }
+      cx.save(); cx.translate(b.x, b.y); cx.rotate(b.rot); cx.globalAlpha = Math.min(1, b.life / 40);
+      cx.fillStyle = b.c;
+      if (b.heart) { var h = b.w * 1.1; cx.beginPath(); cx.moveTo(0, h * 0.4); cx.bezierCurveTo(-h, -h * 0.2, -h * 0.5, -h, 0, -h * 0.4); cx.bezierCurveTo(h * 0.5, -h, h, -h * 0.2, 0, h * 0.4); cx.fill(); }
+      else cx.fillRect(-b.w / 2, -b.h / 2, b.w, b.h);
+      cx.restore();
+    }
+    if (bits.length) requestAnimationFrame(tick); else { running = false; cx.clearRect(0, 0, innerWidth, innerHeight); }
+  }
+
+  /* ---- countdown / unlock ---- */
+  var isOpen = false, timer;
+  function pad(n) { return String(n); }
+  function update() {
+    var diff = target - new Date();
+    if (diff <= 0 || preview) { openGift(); return; }
+    var s = Math.floor(diff / 1000);
+    $('cd').textContent = pad(Math.floor(s / 86400));
+    $('ch').textContent = pad(Math.floor(s % 86400 / 3600));
+    $('cm').textContent = pad(Math.floor(s % 3600 / 60));
+    $('cs').textContent = pad(s % 60);
+  }
+  function openGift() {
+    if (isOpen) return;
+    isOpen = true; clearInterval(timer);
+    $('locked').hidden = true; $('opened').hidden = false;
+    scrollTo(0, 0);
+    setTimeout(function () { burst(90, innerWidth / 2, innerHeight * 0.3); }, 350);
+  }
+  addEventListener('hashchange', function () { preview = location.hash === '#preview'; if (preview) openGift(); });
+  update(); timer = setInterval(update, 1000);
+
+  /* ---- candle + letter ---- */
+  function showLetter() {
+    var body = $('letterBody'); body.innerHTML = '';
+    CONFIG.letter.forEach(function (t) { var p = document.createElement('p'); p.textContent = t; body.appendChild(p); });
+    $('letter').hidden = false;
+    var ps = body.querySelectorAll('p');
+    ps.forEach(function (p, i) { setTimeout(function () { p.classList.add('show'); }, reduce ? 0 : 400 + i * 1100); });
+    setTimeout(function () { $('letter').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }, 200);
+    setTimeout(function () { $('again').hidden = false; }, reduce ? 0 : 400 + ps.length * 1100);
+  }
+  $('blow').addEventListener('click', function () {
+    $('cake').classList.add('out');
+    $('blow').disabled = true;
+    $('cakeHint').textContent = 'الأمنية بينا وبس.';
+    setTimeout(function () {
+      burst(130, innerWidth * 0.25, innerHeight * 0.55);
+      burst(130, innerWidth * 0.75, innerHeight * 0.55);
+      showLetter();
+    }, 800);
+  });
+  $('again').addEventListener('click', function () {
+    $('again').hidden = true;
+    $('letter').hidden = true;
+    burst(60, innerWidth / 2, innerHeight * 0.5);
+    showLetter();
+  });
+})();
+</script>
